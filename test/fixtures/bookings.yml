@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  venue: one
+  date: 2019-03-04 18:29:31
+  total_price: 1
+
+two:
+  user: two
+  venue: two
+  date: 2019-03-04 18:29:31
+  total_price: 1
