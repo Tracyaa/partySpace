@@ -25,7 +25,7 @@ end
 end
 
 5.times do
-  Booking.create(user_id: User.all.sample.id, venue_id: Venue.all.sample.id, total_price: rand(100..5000))
+  Booking.create(user_id: User.all.sample.id, venue_id: Venue.all.sample.id, total_price: rand(100..5000), duration: rand(1..10))
 end
 
 10.times do
