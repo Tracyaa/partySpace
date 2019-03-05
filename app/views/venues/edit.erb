@@ -1,0 +1,25 @@
+<div class="a">
+<h1>Edit <%= @venue.name %></h1>
+<ul style="list-style-type:none;">
+<%= form_for @venue do |f| %>
+  <li><%= f.label :name %>
+  <%= f.text_field :name %></li>
+  <li><%= f.label :location %>
+  <%= f.text_field :location %></li>
+  <li><%= f.label :price %>
+  <%= f.number_field :price %></li>
+  <li><%= f.label :capacity %>
+  <%= f.number_field :capacity %></li>
+  <li><%= f.label :activity %>
+  <%= f.collection_select :activity, @activities, :to_s, :to_s, include_blank: false %></li>
+
+  <li><%= f.label :amenities %>
+  <%= f.collection_select :amenities, @amenities, :to_s, :to_s, include_blank: false %></li>
+
+  <li><%= f.label :img_url %>
+  <%= f.text_field :img_url %></li>
+
+  <%= f.submit %>
+<% end %>
+</ul>
+<%= link_to "Go back", venue_path %>
