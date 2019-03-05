@@ -1,9 +1,9 @@
 require 'faker'
 
-User.destroy_all
-Venue.destroy_all
 Booking.destroy_all
 Favorite.destroy_all
+User.destroy_all
+Venue.destroy_all
 
 
 img_urls = ["https://nationalsawdust.org/wp-content/uploads/2017/05/facebook-nationalsawdust.jpg", "https://nationalsawdust.org/wp-content/uploads/blue@sawdust-1-1.jpg", "https://c1.staticflickr.com/7/6201/6078984864_95ec08b9c1_b.jpg",
@@ -16,18 +16,18 @@ activities = ["Bday Party", "Wedding Shower", "Baby Shower", "Corporate", "Dinne
 amenities = ["Lights", "Music Equipment", "Sound System", "Table Seating", "Catering"]
 
 
-10.times do
+8.times do
   User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Alphanumeric.alphanumeric(10), img_url: Faker::Avatar.image)
 end
 
-10.times do
+8.times do
   Venue.create(name: Faker::Games::Zelda.location, location: Faker::Address.street_address, price: rand(50..3000), capacity: rand(10..300), activity: activities.sample, amenities: amenities.sample, img_url: img_urls.sample, user_id: User.all.sample.id)
 end
 
-5.times do
+20.times do
   Booking.create(user_id: User.all.sample.id, venue_id: Venue.all.sample.id, total_price: rand(100..5000))
 end
 
-10.times do
+20.times do
   Favorite.create(user_id: User.all.sample.id, venue_id: Venue.all.sample.id)
 end
