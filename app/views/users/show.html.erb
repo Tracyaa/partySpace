@@ -1,0 +1,28 @@
+<h1><%= @user.name %>'s Page:</h1>
+
+<p><img src=<%= @user.img_url %> style="width:60px;height:60px;"></p>
+
+<ul>
+  <li>
+  <b>User Email: </b><%= @user.email %>
+  </li>
+
+  <br>
+
+  <li><b>User favorties: </b><%= @user.favorites.count %></li>
+  <li><b>User bookings: </b><%= @user.bookings.count %></li>
+
+  <br>
+
+  <%= @user.venues.each do |venue| %>
+    <li><b>Venue <%# IDEA:  %>: </b><%= venue.id %></li>
+    <li><b>Venue name: </b><%= venue.name %></li>
+    <li><b>Venue location: </b><%= venue.location %></li>
+    <li><b>Venue price: </b><%= venue.price %></li>
+    <li><b>Venue activity: </b><%= venue.activity %></li>
+    <li><b>Venue amenities: </b><%= venue.amenities %></li>
+    <li><b>Venue image: </b><img src=<%= venue.img_url %>></li>
+  <% end %>
+
+
+</ul>

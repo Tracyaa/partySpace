@@ -1,4 +1,4 @@
-# PARTY SPACE # 
+# PARTY SPACE #
 
 - A site where a USER can search for, book, update, and delete a booking for an event space (VENUE) in NYC.
 - The USER can seach for VENUEs by date, location, price, capacity, and type/activity (eg, bday party, dinners, baby/wedding showers, corporate parties, etc.)
@@ -9,34 +9,33 @@
 
 ## USER ##
 - name
-- username (unique)
 - password (unique)
 - email (unique)
 - image url (profile photo)
 
-## VENUE/SPACE ##
+## VENUE ##
 - name
 - location
-- price_per_hour
+- price (per hour)
 - capacity
 - type/activity (collection_select)
 - amenities/features (of venue)
 - image url
 - user_id
 
-## BOOKING [JOIN]##
+## BOOKING ##
 - user_id
 - venue_id
 - date (of booking)
 - total_price (price * hours)
 
-## FAVORITE [JOIN]##
+## FAVORITE ##
 - user_id
 - venue_id
-- comment
+- comment/note on favorite eg, "second option" (optional)
 
 # Optional #
-## MESSAGE [JOIN]##
+## MESSAGE ##
 - user_id
 - venue_id / host_id
 - content
