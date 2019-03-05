@@ -16,9 +16,10 @@ activities = ["Birthday Party", "Wedding Shower", "Baby Shower", "Corporate", "D
 amenities = ["Lights", "Music Equipment", "Sound System", "Table Seating", "Catering"]
 
 
-10.times do
+8.times do
   User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Alphanumeric.alphanumeric(10), img_url: Faker::Avatar.image)
 end
+
 
 10.times do
   Venue.create(name: Faker::Games::Zelda.location, location: Faker::Address.street_address, price: rand(50..3000), capacity: rand(10..300), activity: activities.sample, amenities: amenities.sample(rand(1..4)), img_url: img_urls.sample, user_id: User.all.sample.id)
@@ -28,6 +29,6 @@ end
   Booking.create(user_id: User.all.sample.id, venue_id: Venue.all.sample.id, total_price: rand(100..5000), duration: rand(1..10))
 end
 
-10.times do
+20.times do
   Favorite.create(user_id: User.all.sample.id, venue_id: Venue.all.sample.id)
 end
