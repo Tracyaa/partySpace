@@ -1,7 +1,15 @@
 <h1>Venues</h1>
-<ul>
+<ul style="list-style-type:none;">
 
 <% @venues.each do |venue| %>
-  <li><%= link_to venue.name, venue %></li>
+  <li>
+    <a href="/venues/<%= venue.id %>">
+    <img src="<%= venue.img_url %>" alt="<%= venue.name %>" class="center">
+    </a>
+  </li>
+
 <% end %>
 </ul>
+
+
+<%= link_to "Create a new venue", new_venue_path %>

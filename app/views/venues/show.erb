@@ -12,7 +12,7 @@
   <li>Capacity: <%= @venue.capacity %></li>
   <li>Activity: <%= @venue.activity %></li>
   <li>Amenities: <%= @venue.amenities.delete('""[]') %></li>
-  <li>Contact Host: <%= @venue.user.name %></li>
+  <li>Contact Host: <%= link_to @venue.user.name, @venue.user %></li>
 </ul>
 </h4>
 
@@ -20,3 +20,4 @@
 <br>
 <%= link_to "Venue Home", venues_path %>
 </div>
+<br><br><br>

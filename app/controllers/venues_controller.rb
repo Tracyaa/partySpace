@@ -10,13 +10,28 @@ class VenuesController < ApplicationController
   end
 
   def edit
-    @amenities = ["Lights", "Music Equipment", "Sound System", "Table Seating", "Catering"]
-    @activities = ["Birthday Party", "Wedding Shower", "Baby Shower", "Corporate", "Dinner", "Party"]
   end
 
   def update
     @venue.update(venue_params)
-    redirect_to @venue
+    if @venue.valid?
+      redirect_to @venue
+    else
+      render :new
+    end
+  end
+
+  def new
+    @venue = Venue.new
+  end
+
+  def create
+    @venue = Venue.create(venue_params)
+    if @venue.valid?
+      redirect_to @venue
+    else
+      render :new
+    end
   end
 
   private

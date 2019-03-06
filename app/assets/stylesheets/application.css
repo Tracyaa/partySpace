@@ -23,15 +23,24 @@
  div.a {
    text-align: center;
  }
-
  div.b {
    text-align: left;
  }
-
  div.c {
    text-align: right;
  }
-
  div.c {
    text-align: justify;
  }
+
+ .column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
