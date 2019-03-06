@@ -1,15 +1,28 @@
-<h1>Venues</h1>
-<ul style="list-style-type:none;">
+<div class="a">
+<h1 style="color:rgb(132, 30, 233); font-size: 50px; font-style: italic;">Venues</h1>
+<%= form_tag("/venues", method: "get") do %>
+  <input type="hidden" name="sort_price" value="yes">
+  <%= submit_tag("sort by price") %>
+<% end %>
+<%= button_to "reset", venues_path, method: :get %>
 
+<br>
+<%= link_to "Create Listing", new_venue_path %>
+
+<ul style="list-style-type:none;">
 <% @venues.each do |venue| %>
   <li>
-    <a href="/venues/<%= venue.id %>">
+    <a class="venue-img-link" href="/venues/<%= venue.id %>" >
     <img src="<%= venue.img_url %>" alt="<%= venue.name %>" class="center">
     </a>
+    <%= venue.name %>
+    <br><br>
   </li>
 
 <% end %>
 </ul>
 
 
-<%= link_to "Create a new venue", new_venue_path %>
+
+
+</div>

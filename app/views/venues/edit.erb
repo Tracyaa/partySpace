@@ -1,5 +1,7 @@
 <div class="a">
 <h1>Edit <%= @venue.name %></h1>
+<img src="<%= @venue.img_url %>" alt="<%= @venue.name %>" class="center">
+
 <ul style="list-style-type:none;">
 <%= form_for @venue do |f| %>
   <li><%= f.label :name %>
@@ -11,10 +13,11 @@
   <li><%= f.label :capacity %>
   <%= f.number_field :capacity %></li>
   <li><%= f.label :activity %>
-  <%= f.collection_select :activity, @activities, :to_s, :to_s, include_blank: false %></li>
+  <%= f.collection_select :activity, @activities, :to_s, :to_s, include_blank: true %></li>
 
   <li><%= f.label :amenities %>
-  <%= f.collection_select :amenities, @amenities, :to_s, :to_s, include_blank: false %></li>
+  <%= f.collection_check_boxes :amenities, @amenities, :to_s, :to_s, checked: @venue.amenities.delete('"[]\"').split(",") %></li>
+
 
   <li><%= f.label :img_url %>
   <%= f.text_field :img_url %></li>

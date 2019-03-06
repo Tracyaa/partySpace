@@ -1,6 +1,12 @@
 <div class="a">
 <h1>Create New Venue</h1>
 <ul style="list-style-type:none;">
+  <% if @venue.errors.any? %>
+  <% @venue.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+<% end %>
+
 <%= form_for @venue do |f| %>
   <li><%= f.label :name %>
   <%= f.text_field :name %></li>
@@ -10,15 +16,17 @@
   <%= f.number_field :price %></li>
   <li><%= f.label :capacity %>
   <%= f.number_field :capacity %></li>
-
   <li><%= f.label :activity %>
-  <%= f.collection_select :activity, @activities, :to_s, :to_s, include_blank: false %></li>
+  <%= f.collection_select :activity, @activities, :to_s, :to_s, include_blank: true %></li>
 
   <li><%= f.label :amenities %>
-  <%= f.collection_select :amenities, @amenities, :to_s, :to_s, include_blank: false %></li>
+  <%= f.collection_check_boxes :amenities, @amenities, :to_s, :to_s, checked: @venue.amenities %></li>
 
   <li><%= f.label :img_url %>
   <%= f.text_field :img_url %></li>
+
+  <li><%= f.label :user_id %>
+  <%= f.collection_select :user_id, @users, :id, :name %></li>
 
   <%= f.submit %>
 <% end %>

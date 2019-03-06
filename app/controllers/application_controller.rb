@@ -7,4 +7,5 @@ class ApplicationController < ActionController::Base
     @amenities = ["Lights", "Music Equipment", "Sound System", "Table Seating", "Catering"]
     @activities = ["Birthday Party", "Wedding Shower", "Baby Shower", "Corporate", "Dinner", "Party"]
   end
+
 end
