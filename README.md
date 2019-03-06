@@ -6,6 +6,7 @@
 - The USER can MESSAGE the VENUE.
 
 
+# Models: #
 
 ## USER ##
 - name
@@ -40,3 +41,10 @@
 - venue_id / host_id
 - content
 - date/time (timestamp)
+
+
+# To Run Program: #
+1. $ bundle install
+2. $ db:migrate
+3. $ rake db:seed
+4. $ rails s

@@ -1,0 +1,19 @@
+<h1>Update <%= @user.name %>'s Profile</h1>
+
+<ul>
+<%= form_for @user do |f| %>
+  <li>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </li>
+
+
+
+  <li>
+    <%= f.label :img_url %>
+    <%= f.text_field :img_url %>
+  </li>
+
+  <%= f.submit %>
+<% end %>
+</ul>
