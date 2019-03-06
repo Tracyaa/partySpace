@@ -3,7 +3,7 @@
 <ul>
   <% @users.each do |user| %>
     <li>
-      <%= link_to user.name, user_path(user) %>" "<img src="<%= user.img_url %>" style="width:40px;height:40px;">
+      <%= link_to user.name, user_path(user) %> <img src="<%= user.img_url %>" style="width:40px;height:40px;">
     </li>
   <% end %>
 </ul>

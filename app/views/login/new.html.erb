@@ -1,4 +1,5 @@
-<h1>User Sign Up Page</h1>
+<h1>Login</h1>
+
 
 <% if @user.errors.any? %>
 
@@ -11,16 +12,16 @@
     </ol>
 <% end %>
 
-<%= form_for @user do |f| %>
+<%= form_tag login_index_path do %>
   <ul>
     <li>
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
     </li>
     <li>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
     </li>
   </ul>
-  <%= f.submit %>
+  <%= submit_tag "Log in" %>
 <% end %>

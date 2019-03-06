@@ -1,6 +1,6 @@
 <h1><%= @user.name %>'s Page:</h1>
 
-<p><img src=<%= @user.img_url %> style="width:60px;height:60px;"></p>
+
 
 <ul>
   <li>
@@ -24,5 +24,8 @@
     <li><b>Venue image: </b><img src=<%= venue.img_url %>></li>
   <% end %>
 
-
 </ul>
+
+
+<%= button_to 'Edit User', edit_user_path, method: :get %>
+<%= button_to "Delete User", user_path(@user), method: :delete %>
