@@ -1,0 +1,25 @@
+<div class="a">
+<h1><%= @booking.user.name %></h1>
+
+<img src="<%= @booking.venue.img_url %>" alt="<%= @booking.venue.name %>" class="center">
+
+
+
+<h4>
+<ul style="list-style-type:none;">
+  <li>Location: <%= @booking.venue.location %></li>
+  <li>Duration: <%= @booking.duration %></li>
+  <li>Price Total: $<%= @booking.total_price %></li>
+  <li>Capacity: <%= @booking.venue.capacity %> people</li>
+  <li>Activity: <%= @booking.venue.activity %></li>
+  <li>Amenities: <%= @booking.venue.amenities.delete('"[]\"').split(",").join(", ") %></li>
+
+  <li>Contact Host: <%= link_to @booking.venue.user.name, @booking.venue.user %></li>
+</ul>
+</h4>
+
+<%= link_to "Edit", edit_booking_path %>
+<br>
+<%= link_to "My Bookings", bookings_path %>
+</div>
+<br><br><br>
