@@ -38,7 +38,7 @@ class VenuesController < ApplicationController
   def update
     # byebug
     @venue.amenities.clear
-    params[:venue][:amenities] = params[:venue][:amenities][1..-1].to_json
+    params[:venue][:amenities] = params[:venue][:amenities][1..-1].join(", ")
     @venue.update(venue_params)
     if @venue.valid?
       redirect_to venue_path(@venue)

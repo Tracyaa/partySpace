@@ -16,7 +16,7 @@
   <%= f.collection_select :activity, @activities, :to_s, :to_s, include_blank: true %></li>
 
   <li><%= f.label :amenities %>
-  <%= f.collection_check_boxes :amenities, @amenities, :to_s, :to_s, checked: @venue.amenities.delete('"[]\"').split(",") %></li>
+  <%= f.collection_check_boxes :amenities, @amenities, :to_s, :to_s, checked: @venue.amenities.split(",") %></li>
 
 
   <li><%= f.label :img_url %>

@@ -1,0 +1,18 @@
+<div class="a">
+<h1>Edit <%= @booking.date %></h1>
+<img src="<%= @booking.venue.img_url %>" alt="<%= @booking.venue.name %>" class="center">
+
+<ul style="list-style-type:none;">
+<%= form_for @booking do |f| %>
+  <li><%= f.label :date %>
+  <%= f.text_field :date, :placeholder => 'dd/mm/yyyy' %></li>
+  <li><%= f.label :duration %>
+  <%= f.text_field :duration %></li>
+  <li><%= f.label :total_price %>
+  <%= f.number_field :total_price %></li>
+
+  <%= f.submit %>
+<% end %>
+</ul>
+<%= link_to "Go back", venue_path %>
+<br><br><br>
