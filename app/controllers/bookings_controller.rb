@@ -20,6 +20,19 @@ class BookingsController < ApplicationController
     redirect_to @booking
   end
 
+  def new
+    @venue = Venue.find(params[:venue_id])
+    @booking = Booking.new
+  end
+
+  def create
+    booking_params[:total_price] = booking_params[:duration]
+    @booking = Booking.create(booking_params)
+    byebug
+
+    redirect_to @current_user
+  end
+
   private
 
   def get_booking
@@ -27,7 +40,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:date, :total_price, :duration)
+    params.require(:booking).permit(:user_id, :venue_id, :date, :total_price, :duration)
   end
 
 end
