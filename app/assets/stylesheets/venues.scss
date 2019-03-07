@@ -5,28 +5,18 @@
 .venue-img-link {
 text-shadow: 0 0 15px black;
 }
-.on-venue-link {
-text-shadow: 0 0 15px black;
-color: pink;
-}
 
 .bd-placeholder-img {
-       font-size: 1.125rem;
-       text-anchor: middle;
-       -webkit-user-select: none;
-       -moz-user-select: none;
-       -ms-user-select: none;
-       user-select: none;
-     }
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-     @media (min-width: 768px) {
-       .bd-placeholder-img-lg {
-         font-size: 3.5rem;
-       }
-     }
-
-
-div.container {
-  text-align: center;
-  padding: 10px 20px;
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
 }

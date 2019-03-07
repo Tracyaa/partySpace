@@ -1,6 +1,6 @@
 class VenuesController < ApplicationController
 
-  before_action :get_venue, only: [:show, :edit, :update]
+  before_action :get_venue, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:sort_price]
@@ -47,6 +47,10 @@ class VenuesController < ApplicationController
     end
   end
 
+  def destroy
+    @venue.destroy
+    redirect_to venues_path
+  end
 
   private
 

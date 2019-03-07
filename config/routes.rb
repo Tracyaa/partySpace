@@ -9,10 +9,10 @@ Rails.application.routes.draw do
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'login#new', as: 'login'
-  # get 'logout', to: 'login#destroy', as: 'logout'
   delete 'logout', to: 'login#destroy', as: 'logout'
-  # delete '/logout', to: 'login#destroy', as: :logout
 
+  # get 'logout', to: 'login#destroy', as: 'logout'
+  # delete '/logout', to: 'login#destroy', as: :logout
 
   resources :login, only: [:new, :create, :destroy]
 
