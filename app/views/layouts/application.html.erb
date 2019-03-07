@@ -10,11 +10,42 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a class="navbar-brand" href="/partyspace">PartySpace</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <ol>
-      <li><%= link_to 'User Index', users_path %></li>
-      <li><%= link_to 'Venue Index' %></li>
-    </ol>
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/users">Users <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/venues">Venues</a>
+          </li>
+          <li class="nav-item">
+            <% if @current_user %>
+              <a class="nav-link" href="/users/<%= @current_user.id %>">Hi, <%= @current_user.name %></a>
+            <% else %>
+            <a class="nav-link" href="/signup">Signup</a>
+          </li>
+          <% end %>
+          <li class="nav-item">
+            <% if logged_in? %>
+                <%= link_to 'Logout', logout_path, {method: :delete, class:'nav-link' } %>
+              <% else %>
+              <a class="nav-link" href="/login">Login</a>
+
+            <% end %>
+
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-md-0">
+          <input class="form-control" type="text" placeholder="Search">
+        </form>
+      </div>
+    </nav>
 
     <hr>
     <% if @current_user %>
@@ -35,6 +66,7 @@
     <% end %>
 
     <hr>
+
 
 
     <%= yield %>

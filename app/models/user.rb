@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :venue_favorites, through: :favorites, source: :venue
 
   validates :email, { presence: true, uniqueness: true }
-  validates :password, { presence: true }
+  # validates :password, { presence: true }
 
   has_secure_password
 

@@ -1,5 +1,12 @@
 {
   "name": "partySpace",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Tracyaa/partySpace.git",
+  "author": "Tracyaa <tracyho0867@gmail.com>",
+  "license": "MIT"
 }

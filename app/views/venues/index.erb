@@ -9,17 +9,16 @@
 <br>
 <%= link_to "Create Listing", new_venue_path %>
 
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+
 
 <ul style="list-style-type:none;">
-<% @venues.each do |venue| %>
+<div class="card-group">
+  <% @venues.each do |venue| %>
+
+
+
+
+
   <li>
     <a class="venue-img-link" href="/venues/<%= venue.id %>" >
     <img src="<%= venue.img_url %>" alt="<%= venue.name %>" class="center">
@@ -30,8 +29,4 @@
 
 <% end %>
 </ul>
-
-
-
-
 </div>

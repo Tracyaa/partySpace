@@ -1,4 +1,9 @@
 class LoginController < ApplicationController
+
+  def partyspace
+
+  end
+
   def new
     @user = User.new
   end
@@ -21,6 +26,8 @@ class LoginController < ApplicationController
     redirect_to users_path, notice: "Logged out!"
     # redirect_to root_url, notice: "Logged out!" #Need to sub 'root_url'?
   end
+
+
 
   private
 

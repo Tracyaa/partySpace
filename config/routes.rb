@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :bookings
   resources :favorites
 
+  get 'partyspace', to: 'login#partyspace', as: 'partyspace'
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'login#new', as: 'login'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   resources :login, only: [:new, :create, :destroy]
 
 
-  root "venues#index"
-
+  # root "venues#index"
+  root "login#partyspace"
 
 end
