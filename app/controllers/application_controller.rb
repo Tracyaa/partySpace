@@ -4,14 +4,15 @@ class ApplicationController < ActionController::Base
   before_action :authorized
   helper_method :current_user, :logged_in?
 
+  
 
   private
-    
+
   def set_amenity_and_activities
     @amenities = ["Lights", "Music Equipment", "Sound System", "Table Seating", "Catering"]
     @activities = ["Birthday Party", "Wedding Shower", "Baby Shower", "Corporate", "Dinner", "Party"]
   end
-    
+
   def login_user(user)
     session[:user_id] = user.id
   end
