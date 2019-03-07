@@ -39,10 +39,10 @@
 
 require 'faker'
 
-User.destroy_all
-Venue.destroy_all
 Booking.destroy_all
 Favorite.destroy_all
+Venue.destroy_all
+User.destroy_all
 
 
 img_urls = ["https://nationalsawdust.org/wp-content/uploads/2017/05/facebook-nationalsawdust.jpg", "https://nationalsawdust.org/wp-content/uploads/blue@sawdust-1-1.jpg", "https://c1.staticflickr.com/7/6201/6078984864_95ec08b9c1_b.jpg",
@@ -73,25 +73,43 @@ venue_locations = [
 ]
 
 
+profile_photos = [
+  "https://randomuser.me/api/portraits/men/30.jpg",
+  "https://randomuser.me/api/portraits/men/7.jpg",
+  "https://randomuser.me/api/portraits/men/90.jpg",
+  "https://randomuser.me/api/portraits/men/4.jpg",
+  "https://randomuser.me/api/portraits/men/5.jpg",
+  "https://randomuser.me/api/portraits/women/7.jpg",
+  "https://randomuser.me/api/portraits/women/35.jpg",
+  "https://randomuser.me/api/portraits/women/69.jpg",
+  "https://randomuser.me/api/portraits/women/21.jpg",
+  "https://randomuser.me/api/portraits/lego/6.jpg",
+  "https://i5.walmartimages.com/asr/c374ce07-d31a-4f7c-b282-18c1e2cdfb17_1.85f7b9b3e90e0768bfef45f034c322ea.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF",
+  "https://images-na.ssl-images-amazon.com/images/I/61%2B6aK7EfBL._SX425_.jpg",
+  "https://images-na.ssl-images-amazon.com/images/I/811buVUOl6L._SX425_.jpg",
+  "https://cdn11.bigcommerce.com/s-0kvv9/images/stencil/1280x1280/products/108950/123497/apijs9yp4__31485.1461382967.jpg?c=2&imbypass=on"
+]
 
 
-10.times do
-  User.create(name: Faker::Name.name, email: Faker::Internet.email, password: Faker::Alphanumeric.alphanumeric(10), img_url: Faker::Avatar.image)
+
+
+8.times do
+  User.create(name: Faker::Name.name, email: Faker::Internet.email, password_digest: Faker::Alphanumeric.alphanumeric(5), img_url: profile_photos.sample)
 end
 
 # venue = Venue.create(name: Faker::Games::Zelda.location, location: Faker::Address.street_address, price: rand(50..3000), capacity: rand(10..300), activity: nil, amenities: nil, img_url: img_urls.sample, user_id: User.all.sample.id)
 
-10.times do
-  Venue.create(name: Faker::Games::Zelda.location, location: venue_locations.sample, price: rand(50..3000), capacity: rand(10..300), activity: activities.sample, amenities: amenities.sample, img_url: img_urls.sample, user_id: User.all.sample.id)
+8.times do
+  Venue.create(name: venue_locations.sample, location: Faker::Address.street_address, price: rand(50..3000), capacity: rand(10..300), activity: activities.sample, amenities: amenities.sample, img_url: img_urls.sample, user_id: User.all.sample.id)
 end
 
-15.times do
+20.times do
   Booking.create(user_id: User.all.sample.id, venue_id: Venue.all.sample.id, total_price: rand(100..5000), duration: rand(1..10))
 end
 
-15.times do
+20.times do
  Favorite.create(user_id: User.all.sample.id, venue_id: Venue.all.sample.id)
 end
 
 
-# puts "#{User.all.count} Users & #{Venue.all.count} Venues created"
+puts "#{User.all.count} Users & #{Venue.all.count} Venues created"

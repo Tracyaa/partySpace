@@ -7,11 +7,16 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+
+
+
   </head>
 
   <body>
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a class="navbar-brand" href="/partyspace">PartySpace</a>
+      <a class="navbar-brand" href="/partyspace">PartyOn</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -47,28 +52,26 @@
       </div>
     </nav>
 
-    <hr>
-    <% if @current_user %>
-      Logged in as <%= @current_user.email %>
-      <%# link_to 'Log out', logout_path, method: "delete" %>
-    <% else %>
-      <%= link_to 'Sign Up', signup_path %> or
-      <%= link_to 'Login', login_path %>
-    <% end %>
 
-    <br><br>
-
-    <% if logged_in? %>
     <%# if @current_user %>
-      <%= button_to('Logout', logout_path, {method: :delete}) %>
-    <% else %>
-      <%= button_to('Login', login_path, {method: :get}) %>
-    <% end %>
+      <%# Logged in as <%= @current_user.email %>
+      <%# link_to 'Log out', logout_path, method: "delete" %>
+    <%# else %>
+      <%# link_to 'Sign Up', signup_path %>
+      <%# link_to 'Login', login_path %>
+    <%# end %>
 
-    <hr>
 
+    <%# if logged_in? %>
+    <%# if @current_user %>
+      <%# button_to('Logout', logout_path, {method: :delete}) %>
+    <%# else %>
+      <%# button_to('Login', login_path, {method: :get}) %>
+    <%# end %>
 
 
     <%= yield %>
+
+
   </body>
 </html>
