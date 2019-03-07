@@ -23,7 +23,7 @@ class LoginController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to users_path, notice: "Logged out!"
+    redirect_to "/partyspace", notice: "Logged out!"
     # redirect_to root_url, notice: "Logged out!" #Need to sub 'root_url'?
   end
 

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :get_user, only: [:show, :edit, :update]
+  before_action :get_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -37,7 +37,10 @@ class UsersController < ApplicationController
 
   end
 
-
+  def destroy
+    @user.destroy
+    redirect_to "/partyspace"
+  end
 
 
   private

@@ -1,5 +1,10 @@
 <div class="a">
-<h1><%= @venue.name %></h1>
+<section class="jumbotron text-center">
+
+    <h1><%= @venue.name %></h1>
+
+</section>
+
 
 <img src="<%= @venue.img_url %>" alt="<%= @venue.name %>" class="center">
 
@@ -16,8 +21,14 @@
   <li>Contact Host: <%= link_to @venue.user.name, @venue.user %></li>
 </ul>
 </h4>
-<%= button_to "favorite" %>
-
+<% if logged_in? %>
+  <%= link_to "Book it", new_booking_path(venue_id: @venue.id), {class: "btn btn-outline-danger"}%>
+  <%= link_to "Favorite it", new_favorite_path(venue_id: @venue.id), {class: "btn btn-outline-info"}%>
+<% else %>
+  <%= link_to "Book it", login_path, {class: "btn btn-outline-danger"}%>
+  <%= link_to "Favorite it", login_path, {class: "btn btn-outline-info"}%>
+<% end %>
+<br>
 <%= link_to "Edit", edit_venue_path %>
 <br>
 <%= link_to "Venue Home", venues_path %>
