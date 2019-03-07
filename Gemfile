@@ -32,6 +32,9 @@ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'bootstrap'
+gem 'jquery-rails'
+gem 'bootstrap-sass'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

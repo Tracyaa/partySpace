@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :get_user, only: [:show, :edit, :update]
+  before_action :get_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -13,7 +13,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    # byebug
     @user = User.create(user_params)
     if @user.valid?
       login_user(@user)
@@ -29,15 +28,17 @@ class UsersController < ApplicationController
   end
 
   def update
-    # raise params.inspect
-    # @user.update(name: params[:user][:name], img_url: params[:user][:img_url])
     @user.update(user_params)
-    # byebug
     redirect_to user_path(@user)
-
   end
 
-
+  def destroy
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
 
   private
