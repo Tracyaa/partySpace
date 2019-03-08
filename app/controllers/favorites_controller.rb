@@ -1,22 +1,9 @@
 class FavoritesController < ApplicationController
 
-  before_action :get_favorite, only: [:show, :edit, :destroy]
+  before_action :get_favorite, only: [:show, :destroy]
 
   def index
     @favorites = Favorite.all
-  end
-
-  # def show
-  #
-  # end
-  #
-  def edit
-
-  end
-
-  def update
-    @favorite.update(favorite_params)
-    redirect_to @favorite
   end
 
   def new

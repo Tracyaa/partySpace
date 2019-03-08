@@ -1,44 +1,46 @@
 <div class="bgt">
 
+  <div class="venue-list">
 
-<div class="a">
-<h1>Create New Venue</h1>
-<ul style="list-style-type:none;">
-  <% if @venue.errors.any? %>
-  <% @venue.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-<% end %>
 
-<%= form_for @venue do |f| %>
-  <li><%= f.label :name %>
-  <%= f.text_field :name %></li>
+    <div class="a">
+    <br>
+      <h1>Create New Venue</h1>
 
-  <li><%= f.label :location %>
-  <%= f.text_field :location %></li>
+      <ul style="list-style-type:none;">
+        <% if @venue.errors.any? %>
+          <% @venue.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        <% end %>
 
-  <li><%= f.label :price %>
-  <%= f.number_field :price %></li>
+        <%= form_for @venue do |f| %>
+          <li><%= f.label :name %>
+          <%= f.text_field :name %></li>
 
-  <li><%= f.label :capacity %>
-  <%= f.number_field :capacity %></li>
+          <li><%= f.label :location %>
+          <%= f.text_field :location %></li>
 
-  <li><%= f.label :activity %>
-  <%= f.collection_select :activity, @activities, :to_s, :to_s, include_blank: true %></li>
+          <li><%= f.label :price %>
+          <%= f.number_field :price %></li>
 
-  <li><%= f.label :amenities %>
-  <%= f.collection_check_boxes :amenities, @amenities, :to_s, :to_s, checked: @venue.amenities %></li>
+          <li><%= f.label :capacity %>
+          <%= f.number_field :capacity %></li>
 
-  <li><%= f.label :img_url %>
-  <%= f.text_field :img_url %></li>
+          <li><%= f.label :activity %>
+          <%= f.collection_select :activity, @activities, :to_s, :to_s, include_blank: true %></li>
 
-  <li><%= f.label :user_id %>
-  <%= f.collection_select :user_id, @users, :id, :name %></li>
+          <li><%= f.label :amenities %>:
+          <%= f.collection_check_boxes :amenities, @amenities, :to_s, :to_s, checked: @venue.amenities %></li>
 
-  <%= f.submit %>
-<% end %>
-</ul>
-<%= link_to "Go back", venues_path %>
-<br><br><br>
+          <li><%= f.label :img_url %>
+          <%= f.text_field :img_url %></li>
 
+          <input type="hidden" name="venue[user_id]" value="<%= @current_user.id %>">
+
+          <%= f.submit "Post it!", {class: "btn btn-info"} %>
+        <% end %>
+        </ul>
+    </div>
+  </div>
 </div>

@@ -1,6 +1,11 @@
-<h1>Update <%= @user.name %>'s Profile</h1>
+<div class="a">
+<section class="jumbotron text-center">
+  <h1>Update <%= @user.name %>'s Profile</h1>
+</section>
 
-<ul>
+
+
+<ul style="list-style-type:none;">
 <%= form_for @user do |f| %>
   <li>
     <%= f.label :name %>
@@ -14,6 +19,7 @@
     <%= f.text_field :img_url %>
   </li>
 
-  <%= f.submit %>
+  <%= f.submit "Update", {class: "btn btn-outline-secondary"}%>
 <% end %>
 </ul>
+</div>

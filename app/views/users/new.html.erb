@@ -1,10 +1,11 @@
+<div class="bgt cover-heading">
 <div class="a">
-  <section class="jumbotron text-center">
-    <h1>Sign Up/Register</h1>
-  </section>
+<br>
+    <h1>Sign Up</h1>
 
 
-<% if @user.errors.any? %>
+
+  <% if @user.errors.any? %>
 
     <h2><%= pluralize(@user.errors.count, "error") %> prohibited your account from being created!</h2>
 
@@ -34,8 +35,10 @@
       <%= f.text_field :img_url %>
     </li>
   </ul>
-  <%= f.submit class: "btn btn-outline-primary" %>
+  <%= f.submit class: "btn btn-info" %>
 <% end %>
 
 
+
+</div>
 </div>
