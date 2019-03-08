@@ -8,12 +8,11 @@
     <section class="jumbotron text-center">
       <div class="container">
         <%= link_to "view all", venues_path, {class: "btn btn-secondary btn-sm"} %>
-        <h1></h1>
-          <%= form_tag("/venues", method: "get") do %>
-            <input type="hidden" name="sort_price" value="yes">
-            <%= submit_tag "pirce low to high", {class: "btn btn-secondary btn-sm"} %>
-          <% end %>
-
+        <span style="display:inline-block;width:15px"> </span>
+        <%= form_tag("/venues", method: "get") do %>
+          <input type="hidden" name="sort_price" value="yes">
+          <%= submit_tag "price: low to high", {class: "btn btn-secondary btn-sm"} %>
+        <% end %>
       </div>
     </section>
 

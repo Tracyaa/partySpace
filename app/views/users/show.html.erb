@@ -1,10 +1,11 @@
-<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link href="album.css" rel="stylesheet">
 
 <!DOCTYPE html>
 <html>
   <head>
     <title>User Page</title>
+
+    <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="album.css" rel="stylesheet">
   </head>
 
   <body>
@@ -15,20 +16,20 @@
     <br>
     <br>
     <div class="prof-margin">
-
       <ul style="list-style-type:none;">
         <li>
           <b>Email: </b><%= @user.email %>
         </li>
       </ul>
-      <p><a class="btn btn-outline-secondary" href=/users/<%= @user.id %>/edit role="button">Edit <%= @user.name %> &raquo;</a>
+
+      <p>
+        <a class="btn btn-outline-secondary" href=/users/<%= @user.id %>/edit role="button">Edit <%= @user.name %> &raquo;</a>
         <a class="btn btn-outline-secondary" href=/users/<%= @user.id %> role="button">Delete <%= @user.name %> &raquo;</a>
       </p>
       <br>
-  </div>
+    </div>
 
-
-    <h3 class="prof-margin">My List</h3>
+    <h3 class="prof-margin">My Listings</h3>
 
     <main role="main">
     <div class="album py-5 bg-light">
@@ -39,13 +40,12 @@
             <div class="card mb-4 shadow-sm">
               <img class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" src="<%= venue.img_url %>" </img><rect src="<%= venue.img_url %>"width="100%" height="100%" fill="#55595c"/>
               <div class="card-body">
-                <p class="card-text"><%= venue.name %>
-                </p>
+                <p class="card-text"><%= venue.name %></p>
                 <%= link_to "View Details", venue, {class:"btn btn-sm btn-outline-secondary"} %>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                  </div>
-                </div>
+                <!-- <div class="d-flex justify-content-between align-items-center">
+                  <!-- <div class="btn-group">
+                  </div> -->
+                <!-- </div> -->
               </div>
             </div>
           </div>
@@ -56,7 +56,7 @@
     </div>
     </main>
 
-<h3 class="prof-margin">Booked</h3>
+<h3 class="prof-margin">Venues You Partied At</h3>
 <main role="main">
 <div class="album py-5 bg-light">
   <div class="container">
@@ -70,7 +70,7 @@
             <a style="list-style-type:none;">
                 <li style="list-style-type:none;"><b><%= booking.venue.name %></b></li>
                 <li>Hours: <%= booking.duration %></li>
-                <li>Price: <%= booking.total_price %></li>
+                <li>Price: <%= number_to_currency(booking.total_price) %></li>
               </a>
             </p>
             <%= link_to "View Venue Details", booking.venue, {class:"btn btn-sm btn-outline-secondary"} %>
@@ -89,7 +89,7 @@
 </div>
 </main>
 
-<h3 class="prof-margin">Liked</h3>
+<h3 class="prof-margin">Favorites For Future Parties</h3>
 <main role="main">
 <div class="album py-5 bg-light">
   <div class="container">
