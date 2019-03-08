@@ -26,7 +26,6 @@ class FavoritesController < ApplicationController
   private
 
   def get_favorite
-    byebug
     @favorite = Favorite.find(params[:id])
   end
 

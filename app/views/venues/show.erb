@@ -6,24 +6,16 @@
 
   <img src="<%= @venue.img_url %>" alt="<%= @venue.name %>" class="center">
   <br>
-  
+
 <h5 class="center">
 <ul style="list-style-type:none;">
-  <li><b>Location:</b> <%= @venue.location %></li>
-  <li><b>Price:</b> <%= @venue.price %> per hour</li>
-  <li><b>Capacity:</b> <%= @venue.capacity %> people</li>
-  <li><b>Activity:</b> <%= @venue.activity %></li>
-  <li><b>Amenities:</b> <%= @venue.amenities.delete('"[]\"').split(",").join(", ") %></li>
-
-
-  <ul style="list-style-type:none;">
-    <li>Location: <%= @venue.location %></li>
-    <li>Price: <%= @venue.price %> per hour</li>
-    <li>Capacity: <%= @venue.capacity %> people</li>
-    <li>Activity: <%= @venue.activity %></li>
-    <li>Amenities: <%= @venue.amenities.delete('"[]\"').split(",").join(", ") %></li>
-    <li>Contact Host: <%= link_to @venue.user.name, @venue.user %></li>
-  </ul>
+  <li><b>Location: </b> <%= @venue.location %></li>
+  <li><b>Price: </b> <%= number_to_currency(@venue.price) %> per hour</li>
+  <li><b>Capacity: </b> <%= @venue.capacity %> people</li>
+  <li><b>Activity: </b> <%= @venue.activity %></li>
+  <li><b>Amenities: </b> <%= @venue.amenities.delete('"[]\"').split(",").join(", ") %></li>
+  <li><b>Contact Host: </b><%= link_to @venue.user.name, @venue.user %></li>
+</ul>
 
   </h5>
   <% if logged_in? %>
