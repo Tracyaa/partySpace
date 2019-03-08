@@ -1,15 +1,19 @@
 <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="album.css" rel="stylesheet">
+<div class="a">
+
 
 <main role="main">
 
     <section class="jumbotron text-center">
       <div class="container">
+        <%= link_to "view all", venues_path, {class: "btn btn-secondary btn-sm"} %>
+        <h1></h1>
           <%= form_tag("/venues", method: "get") do %>
             <input type="hidden" name="sort_price" value="yes">
-            <%= submit_tag "pirce low to high" %>
+            <%= submit_tag "pirce low to high", {class: "btn btn-secondary btn-sm"} %>
           <% end %>
-          <%= button_to "reset", venues_path, method: :get %>
+
       </div>
     </section>
 
@@ -44,5 +48,5 @@
     </div>
     <a href="#">Back to top</a>
   </div>
-
+</div>
 </main>

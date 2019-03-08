@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 
-  before_action :get_booking, only: [:show, :edit, :update]
+  before_action :get_booking, only: [:show, :edit, :update, :destroy]
 
 
   def index
@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
   end
 
   def update
+    booking_params[:total_price] = booking_params[:duration].to_i * booking_params[:total_price].to_i
     @booking.update(booking_params)
     redirect_to @booking
   end
@@ -26,11 +27,15 @@ class BookingsController < ApplicationController
   end
 
   def create
-    booking_params[:total_price] = booking_params[:duration]
+    booking_params[:total_price] = booking_params[:duration].to_i * booking_params[:total_price].to_i
     @booking = Booking.create(booking_params)
-    # byebug
+    byebug
 
     redirect_to @current_user
+  end
+
+  def destroy
+
   end
 
   private
