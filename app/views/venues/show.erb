@@ -1,16 +1,12 @@
 <div class="a">
 <section class="jumbotron text-center">
-
     <h1><%= @venue.name %></h1>
-
 </section>
 
-
 <img src="<%= @venue.img_url %>" alt="<%= @venue.name %>" class="center">
+<br>
 
-
-
-<h4>
+<h5 class="center">
 <ul style="list-style-type:none;">
   <li>Location: <%= @venue.location %></li>
   <li>Price: <%= @venue.price %> per hour</li>
@@ -19,8 +15,9 @@
   <li>Amenities: <%= @venue.amenities.delete('"[]\"').split(",").join(", ") %></li>
 
   <li>Contact Host: <%= link_to @venue.user.name, @venue.user %></li>
+
 </ul>
-</h4>
+</h5>
 <% if logged_in? %>
   <%= link_to "Book it", new_booking_path(venue_id: @venue.id), {class: "btn btn-outline-danger"}%>
   <%= link_to "Favorite it", new_favorite_path(venue_id: @venue.id), {class: "btn btn-outline-info"}%>
@@ -28,9 +25,9 @@
   <%= link_to "Book it", login_path, {class: "btn btn-outline-danger"}%>
   <%= link_to "Favorite it", login_path, {class: "btn btn-outline-info"}%>
 <% end %>
-<br>
-<%= link_to "Edit", edit_venue_path %>
-<br>
-<%= link_to "Venue Home", venues_path %>
+
+<% if logged_in? && @current_user.id == @venue.user.id %>
+<%= link_to "Edit", edit_venue_path(user_id: @current_user.id), {class: "btn btn-outline-info"} %>
+<% end %>
 </div>
 <br><br><br>
