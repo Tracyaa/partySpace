@@ -1,4 +1,8 @@
-<h1>User Sign Up Page</h1>
+<div class="a">
+  <section class="jumbotron text-center">
+    <h1>Sign Up/Register</h1>
+  </section>
+
 
 <% if @user.errors.any? %>
 
@@ -30,5 +34,8 @@
       <%= f.text_field :img_url %>
     </li>
   </ul>
-  <%= f.submit %>
+  <%= f.submit class: "btn btn-outline-primary" %>
 <% end %>
+
+
+</div>

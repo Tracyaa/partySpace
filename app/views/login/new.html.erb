@@ -1,27 +1,30 @@
-<h1>Login</h1>
+<div class="a">
 
+  <section class="jumbotron text-center">
+    <h1>Login</h1>
+  </section>
 
-<% if @user.errors.any? %>
-
+  <% if @user.errors.any? %>
     <h2><%= pluralize(@user.errors.count, "error") %> prohibited your account from being created!</h2>
-
     <ol>
     <% @user.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ol>
-<% end %>
+  <% end %>
 
-<%= form_tag login_index_path do %>
-  <ul>
-    <li>
-      <%= label_tag :email %>
-      <%= text_field_tag :email %>
-    </li>
-    <li>
-      <%= label_tag :password %>
-      <%= password_field_tag :password %>
-    </li>
-  </ul>
-  <%= submit_tag "Log in" %>
-<% end %>
+  <%= form_tag login_index_path do %>
+    <ul style="list-style-type:none;">
+      <li>
+        <%= label_tag :email %>
+        <%= text_field_tag :email %>
+      </li>
+      <li>
+        <%= label_tag :password %>
+        <%= password_field_tag :password %>
+      </li>
+      <li><%= submit_tag "Log in", {class: "btn btn-outline-primary"} %></li>
+    </ul>
+  <% end %>
+
+</div>

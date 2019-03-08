@@ -19,11 +19,15 @@
 @import "./login";
 @import "./venues";
 
+* {
+  font-family: 'Work Sans', sans-serif;
+}
+
  .center {
    display: block;
    margin-left: auto;
    margin-right: auto;
-   width: 30%;
+   width: 40%;
  }
 
  div.a {
