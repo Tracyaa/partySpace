@@ -1,11 +1,12 @@
 <div class="a">
-<section class="jumbotron text-center">
-    <h1><%= @venue.name %></h1>
-</section>
 
-<img src="<%= @venue.img_url %>" alt="<%= @venue.name %>" class="center">
-<br>
+  <section class="jumbotron text-center">
+      <h1><%= @venue.name %></h1>
+  </section>
 
+  <img src="<%= @venue.img_url %>" alt="<%= @venue.name %>" class="center">
+  <br>
+  
 <h5 class="center">
 <ul style="list-style-type:none;">
   <li><b>Location:</b> <%= @venue.location %></li>
@@ -14,21 +15,29 @@
   <li><b>Activity:</b> <%= @venue.activity %></li>
   <li><b>Amenities:</b> <%= @venue.amenities.delete('"[]\"').split(",").join(", ") %></li>
 
-  <li>Contact Host: <%= link_to @venue.user.name, @venue.user %></li>
 
-</ul>
-</h5>
-<% if logged_in? %>
-  <%= link_to "Book it", new_booking_path(venue_id: @venue.id), {class: "btn btn-outline-danger"}%>
-  <%= link_to "Favorite it", new_favorite_path(venue_id: @venue.id), {class: "btn btn-outline-info"}%>
-<% else %>
-  <%= link_to "Book it", login_path, {class: "btn btn-outline-danger"}%>
-  <%= link_to "Favorite it", login_path, {class: "btn btn-outline-info"}%>
-<% end %>
+  <ul style="list-style-type:none;">
+    <li>Location: <%= @venue.location %></li>
+    <li>Price: <%= @venue.price %> per hour</li>
+    <li>Capacity: <%= @venue.capacity %> people</li>
+    <li>Activity: <%= @venue.activity %></li>
+    <li>Amenities: <%= @venue.amenities.delete('"[]\"').split(",").join(", ") %></li>
+    <li>Contact Host: <%= link_to @venue.user.name, @venue.user %></li>
+  </ul>
+
+  </h5>
+  <% if logged_in? %>
+    <%= link_to "Book it", new_booking_path(venue_id: @venue.id), {class: "btn btn-outline-danger"}%>
+    <%= link_to "Favorite it", new_favorite_path(venue_id: @venue.id), {class: "btn btn-outline-info"}%>
+  <% else %>
+    <%= link_to "Book it", login_path, {class: "btn btn-outline-danger"}%>
+    <%= link_to "Favorite it", login_path, {class: "btn btn-outline-info"}%>
+  <% end %>
 
 <% if logged_in? && @current_user.id == @venue.user.id %>
 <%= link_to "Edit", edit_venue_path(user_id: @current_user.id), {class: "btn btn-outline-success"} %>
 <%= link_to "Delete", venue_path(@venue), {class: "btn btn-outline-warning", method: :delete} %>
 <% end %>
+
 </div>
 <br><br><br>

@@ -16,18 +16,20 @@
     <br>
     <div class="prof-margin">
 
-
-    <ul style="list-style-type:none;">
-      <li>
-      <b>Email: </b><%= @user.email %>
-      </li>
-    </ul>
-    <p><a class="btn btn-outline-secondary" href=/users/<%= @user.id %>/edit role="button">Edit <%= @user.name %> &raquo;</a>
-    <a class="btn btn-outline-secondary" href=/users/<%= @user.id %> role="button">Delete <%= @user.name %> &raquo;</a>
-    </p>
-    <br>
+      <ul style="list-style-type:none;">
+        <li>
+          <b>Email: </b><%= @user.email %>
+        </li>
+      </ul>
+      <p><a class="btn btn-outline-secondary" href=/users/<%= @user.id %>/edit role="button">Edit <%= @user.name %> &raquo;</a>
+        <a class="btn btn-outline-secondary" href=/users/<%= @user.id %> role="button">Delete <%= @user.name %> &raquo;</a>
+      </p>
+      <br>
   </div>
+
+
     <h3 class="prof-margin">My List</h3>
+
     <main role="main">
     <div class="album py-5 bg-light">
       <div class="container">
