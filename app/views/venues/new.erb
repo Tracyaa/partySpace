@@ -1,3 +1,6 @@
+<div class="bgt">
+
+
 <div class="a">
 <h1>Create New Venue</h1>
 <ul style="list-style-type:none;">
@@ -19,7 +22,7 @@
 
   <li><%= f.label :capacity %>
   <%= f.number_field :capacity %></li>
-  
+
   <li><%= f.label :activity %>
   <%= f.collection_select :activity, @activities, :to_s, :to_s, include_blank: true %></li>
 
@@ -37,3 +40,5 @@
 </ul>
 <%= link_to "Go back", venues_path %>
 <br><br><br>
+
+</div>
