@@ -95,13 +95,14 @@
   <div class="container">
 
     <div class="row">
-      <% @user.venue_favorites.each do |venue| %>
+      <% @user.favorites.each do |favorite| %>
       <div class="col-md-4">
         <div class="card mb-4 shadow-sm">
-          <img class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" src="<%= venue.img_url %>" </img><rect src="<%= venue.img_url %>"width="100%" height="100%" fill="#55595c"/>
+          <img class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" src="<%= favorite.venue.img_url %>" </img><rect src="<%= favorite.venue.img_url %>"width="100%" height="100%" fill="#55595c"/>
           <div class="card-body">
-            <p class="card-text"><%= venue.name %></p>
-            <%= link_to "View Details", venue, {class:"btn btn-sm btn-outline-secondary"} %>
+            <p class="card-text"><%= favorite.venue.name %></p>
+            <%= link_to "View Details", favorite.venue, {class:"btn btn-sm btn-outline-secondary"} %>
+            <%= link_to "Delete", favorite_path(favorite), {class: "btn btn-outline-warning", method: :delete} %>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <%# <%= link_to "View", venue, {class:"btn btn-sm btn-outline-secondary"} %>
