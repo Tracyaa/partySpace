@@ -15,3 +15,8 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap/dist/js/bootstrap
+
+$(".audioButton").on("click", function() {
+  $(".audio-to-play")[0].currentTime = 0;
+  return $(".audio-to-play")[0].play();
+});
