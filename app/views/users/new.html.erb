@@ -12,7 +12,11 @@
 <% end %>
 
 <%= form_for @user do |f| %>
-  <ul>
+  <ul style="list-style-type:none;">
+    <li>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </li>
     <li>
       <%= f.label :email %>
       <%= f.text_field :email %>
@@ -20,6 +24,10 @@
     <li>
       <%= f.label :password %>
       <%= f.password_field :password %>
+    </li>
+    <li>
+      <%= f.label :img_url %>
+      <%= f.text_field :img_url %>
     </li>
   </ul>
   <%= f.submit %>
