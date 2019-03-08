@@ -1,81 +1,21 @@
+<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="album.css" rel="stylesheet">
 
 <!DOCTYPE html>
 <html>
   <head>
     <title>User Page</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <style media="screen">
-      body, html {
-        height: 100%;
-      }
-
-      h1,h2,h3,p,li {
-        color: black;
-        opacity: 1.0;
-        margin-left: 40px;
-      }
-
-      .bg {
-        background-image: url("https://media.gq.com/photos/58a240704a441ac67f7645f0/16:9/w_2992,h_1683,c_limit/GettyImages-141268575.jpg");
-        opacity: 0.45;
-        height: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-
-      .avatar {
-        vertical-align: middle;
-        width: 100px;
-        height: 100px;
-        border-radius: 10%;
-        margin-left: 40px;
-      }
-
-      .vimage {
-        vertical-align: middle;
-        width: 100px;
-        height: 100px;
-        border-radius: 10%;
-        margin-left: 40px;
-      }
-
-      body {
-        background-color: white;
-      }
-    </style>
-
-
-
   </head>
 
   <body>
-
     <h1><%= @user.name %> Profile</h1>
-
-
     <img src="<%= @user.img_url %>" alt="Avatar" class="avatar">
-
-
-    <ul>
+  <ul style="list-style-type:none;">
       <li>
       <b>Email: </b><%= @user.email %>
       </li>
 
-      <br>
-
-      <li><b>User favorties: </b><%= @user.favorites.count %></li>
-      <li><b>User bookings: </b><%= @user.bookings.count %></li>
-
-      <br>
-
-      <%= @user.venues.each do |venue| %>
+      <% @user.venues.each do |venue| %>
         <li><b>Venue <%# IDEA:  %>: </b><%= venue.id %></li>
         <li><b>Venue name: </b><%= venue.name %></li>
         <li><b>Venue location: </b><%= venue.location %></li>
@@ -86,15 +26,76 @@
       <% end %>
 
     </ul>
+<h3>Booked</h3>
+<main role="main">
+<div class="album py-5 bg-light">
+  <div class="container">
 
+    <div class="row">
+      <% @user.venue_bookings.each do |venue| %>
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" src="<%= venue.img_url %>" </img><rect src="<%= venue.img_url %>"width="100%" height="100%" fill="#55595c"/>
+          <div class="card-body">
+            <p class="card-text"><%= venue.name %>
+
+
+
+            </p>
+            <%= link_to "View Details", venue, {class:"btn btn-sm btn-outline-secondary"} %>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <%# <%= link_to "View", venue, {class:"btn btn-sm btn-outline-secondary"} %>
+                <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+              </div>
+              <!-- <small class="text-muted">9 mins</small> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+  <a href="#">Back to top</a>
+</div>
+</main>
+
+<h3>Liked</h3>
+<main role="main">
+<div class="album py-5 bg-light">
+  <div class="container">
+
+    <div class="row">
+      <% @user.venue_favorites.each do |venue| %>
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" src="<%= venue.img_url %>" </img><rect src="<%= venue.img_url %>"width="100%" height="100%" fill="#55595c"/>
+          <div class="card-body">
+            <p class="card-text"><%= venue.name %></p>
+            <%= link_to "View Details", venue, {class:"btn btn-sm btn-outline-secondary"} %>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <%# <%= link_to "View", venue, {class:"btn btn-sm btn-outline-secondary"} %>
+                <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+              </div>
+              <!-- <small class="text-muted">9 mins</small> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+  <a class="center" href="#">Back to top</a>
+</div>
+</main>
+  <a class="btn btn-secondary" href=/users/<%= @user.id %>/edit role="button">Edit <%= @user.name %> &raquo;</a>
+  <a class="btn btn-secondary" href=/users/<%= @user.id %> role="button">Delete <%= @user.name %> &raquo;</a>
 
     <%= button_to 'Edit User', edit_user_path, method: :get %>
     <%= button_to "Delete User", user_path(@user), method: :delete %>
     <%= yield %>
   </body>
 </html>
-
-
-
-
-###########

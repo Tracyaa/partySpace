@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
   def create
     booking_params[:total_price] = booking_params[:duration]
     @booking = Booking.create(booking_params)
-    byebug
+    # byebug
 
     redirect_to @current_user
   end
