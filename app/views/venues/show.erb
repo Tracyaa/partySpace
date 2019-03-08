@@ -6,7 +6,15 @@
 
   <img src="<%= @venue.img_url %>" alt="<%= @venue.name %>" class="center">
   <br>
-  <h5 class="center">
+  
+<h5 class="center">
+<ul style="list-style-type:none;">
+  <li><b>Location:</b> <%= @venue.location %></li>
+  <li><b>Price:</b> <%= @venue.price %> per hour</li>
+  <li><b>Capacity:</b> <%= @venue.capacity %> people</li>
+  <li><b>Activity:</b> <%= @venue.activity %></li>
+  <li><b>Amenities:</b> <%= @venue.amenities.delete('"[]\"').split(",").join(", ") %></li>
+
 
   <ul style="list-style-type:none;">
     <li>Location: <%= @venue.location %></li>
@@ -26,8 +34,10 @@
     <%= link_to "Favorite it", login_path, {class: "btn btn-outline-info"}%>
   <% end %>
 
-  <% if logged_in? && @current_user.id == @venue.user.id %>
-    <%= link_to "Edit", edit_venue_path(user_id: @current_user.id), {class: "btn btn-outline-info"} %>
-  <% end %>
+<% if logged_in? && @current_user.id == @venue.user.id %>
+<%= link_to "Edit", edit_venue_path(user_id: @current_user.id), {class: "btn btn-outline-success"} %>
+<%= link_to "Delete", venue_path(@venue), {class: "btn btn-outline-warning", method: :delete} %>
+<% end %>
+
 </div>
 <br><br><br>

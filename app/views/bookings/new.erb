@@ -1,32 +1,24 @@
-<div class="bgt">
+<div class="bgt booking-font">
   <div class="a">
+    <br>
 
+    <h1><strong>Book it? <%= @venue.name %>??</strong></h1>
 
-    <div class="booking-font">
-
-      <h1>Book <%= @venue.name %></h1>
-
-    </div>
-    <ul style="list-style-type:none;color:white">
+    <ul style="list-style-type:none;">
       <%= form_for @booking do |f| %>
-        <li>
-          <%= f.label :hours %>
-          <%= f.number_field :duration %>
-        </li>
+        <li><%= f.label :hours %>
+        <%= f.number_field :duration %></li>
 
-        <li>
-          <%= f.label :date %>
-          <%= f.date_select :date %>
-        </li>
+        <li><%= f.label :date %>
+        <%= f.date_select :date %></li>
 
         <input type="hidden" name="booking[venue_id]" value="<%= @venue.id %>">
         <input type="hidden" name="booking[user_id]" value="<%= @current_user.id %>">
         <input type="hidden" name="booking[total_price]" value="<%= @venue.price %>">
 
-        <%= f.submit %>
+        <%= f.submit "Book it!", {class: "btn btn-info"} %>
+        
       <% end %>
     </ul>
-
-
   </div>
 </div>

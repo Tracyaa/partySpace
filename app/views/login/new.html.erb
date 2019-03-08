@@ -1,8 +1,9 @@
+<div class="bgt cover-heading">
 <div class="a">
 
-  <section class="jumbotron text-center">
+<br>
     <h1>Login</h1>
-  </section>
+
 
   <% if @user.errors.any? %>
     <h2><%= pluralize(@user.errors.count, "error") %> prohibited your account from being created!</h2>
@@ -23,9 +24,9 @@
         <%= label_tag :password %>
         <%= password_field_tag :password %>
       </li>
-      <li><%= submit_tag "Log in", {class: "btn btn-outline-primary"} %></li>
+      <li><%= submit_tag "Log in", {class: "btn btn-info"} %></li>
     </ul>
   <% end %>
 
 </div>
-
+</div>

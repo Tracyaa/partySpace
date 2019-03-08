@@ -8,11 +8,14 @@
   </head>
 
   <body>
-    <h1><%= @user.name %> Profile</h1>
+    <br>
+
+    <h1 class="prof-margin"><%= @user.name %>'s Profile</h1>
     <img src="<%= @user.img_url %>" alt="Avatar" class="avatar">
     <br>
     <br>
     <div class="prof-margin">
+
       <ul style="list-style-type:none;">
         <li>
           <b>Email: </b><%= @user.email %>
@@ -25,7 +28,8 @@
   </div>
 
 
-    <h3>My List</h3>
+    <h3 class="prof-margin">My List</h3>
+
     <main role="main">
     <div class="album py-5 bg-light">
       <div class="container">
@@ -52,7 +56,7 @@
     </div>
     </main>
 
-<h3>Booked</h3>
+<h3 class="prof-margin">Booked</h3>
 <main role="main">
 <div class="album py-5 bg-light">
   <div class="container">
@@ -85,7 +89,7 @@
 </div>
 </main>
 
-<h3>Liked</h3>
+<h3 class="prof-margin">Liked</h3>
 <main role="main">
 <div class="album py-5 bg-light">
   <div class="container">
