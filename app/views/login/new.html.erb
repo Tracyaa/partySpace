@@ -13,7 +13,7 @@
 <% end %>
 
 <%= form_tag login_index_path do %>
-  <ul>
+  <ul style="list-style-type:none;">
     <li>
       <%= label_tag :email %>
       <%= text_field_tag :email %>
@@ -23,5 +23,5 @@
       <%= password_field_tag :password %>
     </li>
   </ul>
-  <%= submit_tag "Log in" %>
+  <p><%= submit_tag "Log in" %></p>
 <% end %>

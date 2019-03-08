@@ -16,3 +16,40 @@
         font-size: 3.5rem;
       }
     }
+
+
+
+body, html {
+  height: 100%;
+}
+
+p {
+  color: #7aadff;
+  position: center;
+}
+
+
+
+h1,h2,h3 {
+  color: white;
+  opacity: 1.0;
+  margin-left: 40px;
+  position: center;
+}
+
+.bg {
+  background-image: url("https://media.gq.com/photos/58a240704a441ac67f7645f0/16:9/w_2992,h_1683,c_limit/GettyImages-141268575.jpg");
+  opacity: 0.45;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.box {
+  border: 1px solid green;
+}
+
+body {
+  background-color: lightgrey;
+}

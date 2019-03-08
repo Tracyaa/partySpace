@@ -10,19 +10,27 @@
   <body>
     <h1><%= @user.name %> Profile</h1>
     <img src="<%= @user.img_url %>" alt="Avatar" class="avatar">
+    <br><br>
+    <p><b>Email: </b><%= @user.email %></p>
+    <br>
+
+    <p>
+      <a class="btn btn-secondary" href=/users/<%= @user.id %>/edit role="button">Edit <%= @user.name %> &raquo;</a>
+      <a class="btn btn-secondary" href=/users/<%= @user.id %> role="button">Delete <%= @user.name %> &raquo;</a>
+    </p>
+
   <ul style="list-style-type:none;">
-      <li>
-      <b>Email: </b><%= @user.email %>
-      </li>
+      <br>
+      <br>
 
       <% @user.venues.each do |venue| %>
+      <li><b>Venue image: </b><img src=<%= venue.img_url %> alt="Venue img" class="vimage"></li>
         <li><b>Venue <%# IDEA:  %>: </b><%= venue.id %></li>
         <li><b>Venue name: </b><%= venue.name %></li>
         <li><b>Venue location: </b><%= venue.location %></li>
-        <li><b>Venue price: </b><%= venue.price %></li>
+        <li><b>Venue price: </b><%= number_to_currency(venue.price) %></li>
         <li><b>Venue activity: </b><%= venue.activity %></li>
-        <li><b>Venue amenities: </b><%= venue.amenities %></li>
-        <li><b>Venue image: </b><img src=<%= venue.img_url %> alt="Venue img" class="vimage"></li>
+        <li><b>Venue amenities: </b><%= venue.amenities.delete('"[]\"').split(",").join(", ") %></li>
       <% end %>
 
     </ul>
@@ -91,11 +99,6 @@
   <a class="center" href="#">Back to top</a>
 </div>
 </main>
-  <a class="btn btn-secondary" href=/users/<%= @user.id %>/edit role="button">Edit <%= @user.name %> &raquo;</a>
-  <a class="btn btn-secondary" href=/users/<%= @user.id %> role="button">Delete <%= @user.name %> &raquo;</a>
-
-    <%= button_to 'Edit User', edit_user_path, method: :get %>
-    <%= button_to "Delete User", user_path(@user), method: :delete %>
     <%= yield %>
   </body>
 </html>
