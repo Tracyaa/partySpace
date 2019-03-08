@@ -1,32 +1,31 @@
-<div class="bgt cover-heading">
-<div class="a">
-
-<br>
+<div class="bg-login cover-heading">
+  <div class="a">
+  <br>
     <h1>Login</h1>
 
-
-  <% if @user.errors.any? %>
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited your account from being created!</h2>
-    <ol>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    <% if @user.errors.any? %>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited your account from being created!</h2>
+      <ol>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ol>
     <% end %>
-    </ol>
-  <% end %>
 
-  <%= form_tag login_index_path do %>
-    <ul style="list-style-type:none;">
-      <li>
-        <%= label_tag :email %>
-        <%= text_field_tag :email %>
-      </li>
-      <li>
-        <%= label_tag :password %>
-        <%= password_field_tag :password %>
-      </li>
-      <li><%= submit_tag "Log in", {class: "btn btn-info"} %></li>
-    </ul>
-  <% end %>
-
-</div>
+    <%= form_tag login_index_path do %>
+      <ul style="list-style-type:none;">
+        <li>
+          <%= label_tag :email %>
+          <%= text_field_tag :email %>
+        </li>
+        <li>
+          <%= label_tag :password %>
+          <%= password_field_tag :password %>
+        </li>
+        <li>
+          <%= submit_tag "Log in", {class: "btn btn-info"} %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
 </div>
