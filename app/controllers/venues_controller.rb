@@ -15,9 +15,8 @@ class VenuesController < ApplicationController
   end
 
   def new
-    @users = User.all
+    @current_user
     @venue = Venue.new
-    # @user_id = User.all.sample.id
   end
 
   def create
@@ -36,7 +35,6 @@ class VenuesController < ApplicationController
   end
 
   def update
-    # byebug
     @venue.amenities.clear
     params[:venue][:amenities] = params[:venue][:amenities][1..-1].join(", ")
     @venue.update(venue_params)
@@ -49,7 +47,7 @@ class VenuesController < ApplicationController
 
   def destroy
     @venue.destroy
-    redirect_to venues_path
+    redirect_to @current_user
   end
 
   private

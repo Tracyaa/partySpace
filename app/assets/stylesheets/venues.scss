@@ -20,7 +20,9 @@ text-shadow: 0 0 15px black;
     font-size: 3.5rem;
   }
 }
-
+.venue-list {
+  color: white;
+}
 .bgt {
   background-image: url("https://cdn-image.foodandwine.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/waynes-world-fwx.jpg?itok=bzUctDs-");
   opacity: 0.45;
@@ -28,6 +30,7 @@ text-shadow: 0 0 15px black;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
 
 ul {
   list-style-position: inside;
