@@ -23,19 +23,25 @@ body, html {
   height: 100%;
 }
 
-p {
+.cover-heading {
+  color: white;
+  position: center;
+}
+
+.tagline {
   color: #7aadff;
   position: center;
+  font-size: 23px;
 }
 
 
-
-h1,h2,h3 {
-  color: white;
-  opacity: 1.0;
-  margin-left: 40px;
-  position: center;
-}
+// 
+// h1,h2,h3 {
+//   color: black;
+//   opacity: 1.0;
+//   margin-left: 40px;
+//   position: center;
+// }
 
 .bg {
   background-image: url("https://media.gq.com/photos/58a240704a441ac67f7645f0/16:9/w_2992,h_1683,c_limit/GettyImages-141268575.jpg");

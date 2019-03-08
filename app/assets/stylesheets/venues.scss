@@ -28,8 +28,13 @@ text-shadow: 0 0 15px black;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
-ul {
-  list-style-position: inside;
-  padding-left: 0;
 }
+
+.venue-list {
+  color: white;
+}
+
+  ul {
+    list-style-position: inside;
+    padding-left: 0;
+  }

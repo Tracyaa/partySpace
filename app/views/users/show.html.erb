@@ -12,15 +12,18 @@
     <img src="<%= @user.img_url %>" alt="Avatar" class="avatar">
     <br>
     <br>
-    <ul style="list-style-type:none;">
-      <li>
-      <b>Email: </b><%= @user.email %>
-      </li>
-    </ul>
-    <p><a class="btn btn-outline-secondary" href=/users/<%= @user.id %>/edit role="button">Edit <%= @user.name %> &raquo;</a>
-    <a class="btn btn-outline-secondary" href=/users/<%= @user.id %> role="button">Delete <%= @user.name %> &raquo;</a>
-    </p>
-    <br>
+    <div class="prof-margin">
+      <ul style="list-style-type:none;">
+        <li>
+          <b>Email: </b><%= @user.email %>
+        </li>
+      </ul>
+      <p><a class="btn btn-outline-secondary" href=/users/<%= @user.id %>/edit role="button">Edit <%= @user.name %> &raquo;</a>
+        <a class="btn btn-outline-secondary" href=/users/<%= @user.id %> role="button">Delete <%= @user.name %> &raquo;</a>
+      </p>
+      <br>
+  </div>
+
 
     <h3>My List</h3>
     <main role="main">

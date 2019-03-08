@@ -1,16 +1,16 @@
 <div class="bgf">
+  <div class="faves-font">
+    <div class="a">
 
-  <div class="a">
+      <h1>Like it? <%= @venue.name %>??</h1>
 
-    <h1>Like it? <%= @venue.name %>??</h1>
-
-      <ul style="list-style-type:none;">
-        <%= form_for @favorite do |f| %>
-          <input type="hidden" name="favorite[venue_id]" value="<%= @venue.id %>">
-          <input type="hidden" name="favorite[user_id]" value="<%= @current_user.id %>">
-          <%= f.submit %>
-        <% end %>
-      </ul>
-
+        <ul style="list-style-type:none;">
+          <%= form_for @favorite do |f| %>
+            <input type="hidden" name="favorite[venue_id]" value="<%= @venue.id %>">
+            <input type="hidden" name="favorite[user_id]" value="<%= @current_user.id %>">
+            <%= f.submit %>
+          <% end %>
+        </ul>
+      </div>
   </div>
 </div>

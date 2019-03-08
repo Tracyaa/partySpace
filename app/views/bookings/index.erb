@@ -1,15 +1,17 @@
 <div class="a">
-<h1>List of the person's Bookings</h1>
-<ul style="list-style-type:none;">
-<% @bookings.each do |booking| %>
-  <li>
-    <a class="venue-img-link" href="/bookings/<%= booking.id %>" >
-    <img src="<%= booking.venue.img_url %>" alt="<%= booking.venue.name %>" class="center">
-    </a>
-    <%= booking.venue.name %>
-    <br><br>
-  </li>
 
-<% end %>
-</ul>
+  <h1>List of the person's Bookings</h1>
+
+  <ul style="list-style-type:none;">
+
+    <% @bookings.each do |booking| %>
+      <li>
+        <a class="venue-img-link" href="/bookings/<%= booking.id %>">
+        <img src="<%= booking.venue.img_url %>" alt="<%= booking.venue.name %>" class="center">
+        </a>
+        <%= booking.venue.name %>
+        <br><br>
+      </li>
+    <% end %>
+  </ul>
 </div>
