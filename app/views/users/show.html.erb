@@ -11,44 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <style media="screen">
-      body, html {
-        height: 100%;
-      }
 
-      h1,h2,h3,p,li {
-        color: black;
-        opacity: 1.0;
-        margin-left: 40px;
-      }
-
-      .bg {
-        background-image: url("https://media.gq.com/photos/58a240704a441ac67f7645f0/16:9/w_2992,h_1683,c_limit/GettyImages-141268575.jpg");
-        opacity: 0.45;
-        height: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-
-      .avatar {
-        vertical-align: middle;
-        width: 100px;
-        height: 100px;
-        border-radius: 10%;
-        margin-left: 40px;
-      }
-
-      .vimage {
-        vertical-align: middle;
-        width: 100px;
-        height: 100px;
-        border-radius: 10%;
-        margin-left: 40px;
-      }
-
-      body {
-        background-color: white;
-      }
     </style>
 
 
@@ -75,7 +38,7 @@
 
       <br>
 
-      <%= @user.venues.each do |venue| %>
+      <% @user.venue_bookings.each do |venue| %>
         <li><b>Venue <%# IDEA:  %>: </b><%= venue.id %></li>
         <li><b>Venue name: </b><%= venue.name %></li>
         <li><b>Venue location: </b><%= venue.location %></li>

@@ -10,12 +10,16 @@
 <%= form_for @venue do |f| %>
   <li><%= f.label :name %>
   <%= f.text_field :name %></li>
+
   <li><%= f.label :location %>
   <%= f.text_field :location %></li>
+
   <li><%= f.label :price %>
   <%= f.number_field :price %></li>
+
   <li><%= f.label :capacity %>
   <%= f.number_field :capacity %></li>
+  
   <li><%= f.label :activity %>
   <%= f.collection_select :activity, @activities, :to_s, :to_s, include_blank: true %></li>
 
